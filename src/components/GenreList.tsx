@@ -1,0 +1,17 @@
+import { Text } from "@chakra-ui/react";
+import useGenres from "../hooks/useGenres";
+
+const GenreList = () => {
+  const { genres, error, isLoading } = useGenres();
+
+  return (
+    <ul>
+      {error && <Text>err.message</Text>}
+      {genres.map((genre) => (
+        <li key={genre.id}>{genre.name}</li>
+      ))}
+    </ul>
+  );
+};
+
+export default GenreList;
